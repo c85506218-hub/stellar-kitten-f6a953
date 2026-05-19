@@ -108,6 +108,20 @@
         <span class="text-[10px] font-black">加盟</span>
     </button>
 
+    <!-- 店家詳情彈窗 -->
+    <div id="storeModal" class="modal">
+        <div style="margin:auto; margin-top:5vh; background:#FFFDF7; border:4px solid #1F2937; border-radius:20px; max-width:480px; width:90%; box-shadow:8px 8px 0px rgba(0,0,0,1); overflow:hidden; position:relative">
+            <button onclick="closeStoreModal()" style="position:absolute; top:10px; right:14px; z-index:10; font-size:24px; background:none; border:none; cursor:pointer; line-height:1"><i class="fa-solid fa-circle-xmark"></i></button>
+            <img id="storeModalImg" src="" alt="" style="width:100%; height:auto; display:block; border-bottom:4px solid #1F2937">
+            <div id="storeModalNoImg" style="display:none; height:80px; background:#f3f4f6; display:flex; align-items:center; justify-content:center; border-bottom:4px solid #1F2937; color:#9ca3af; font-size:13px">即將開幕，敬請期待</div>
+            <div style="background:#FFC107; padding:12px 16px; font-weight:900; font-size:18px; border-bottom:2px solid #1F2937" id="storeModalName"></div>
+            <div style="padding:14px 16px; font-size:14px">
+                <span id="storeModalTag" style="background:#1F2937; color:#fff; padding:3px 8px; border-radius:4px; font-size:11px"></span>
+                <p style="margin-top:10px"><i class="fa-solid fa-location-dot"></i> <span id="storeModalAddr"></span></p>
+            </div>
+        </div>
+    </div>
+
     <!-- 加盟資訊彈窗 -->
     <div id="joinModal" class="modal">
         <div class="modal-content shadow-[8px_8px_0px_rgba(0,0,0,1)]">
@@ -209,22 +223,8 @@
         const markersGroup = L.featureGroup().addTo(map);
 
         stores.forEach(store => {
-            const tag = store.type === 'soon' ? '即將開幕' : (store.type === 'mobile' ? '流動市集' : '營業中');
-            const photoHtml = store.photo
-                ? `<img src="${store.photo}" alt="${store.name}" style="width:100%; height:auto; display:block; border-bottom:2px solid #000">`
-                : `<div style="width:100%; height:60px; background:#f3f4f6; display:flex; align-items:center; justify-content:center; border-bottom:2px solid #000; color:#9ca3af; font-size:12px">即將開幕，敬請期待</div>`;
-            const popup = `
-                <div style="overflow:hidden; border-radius:8px">
-                    ${photoHtml}
-                    <div style="background:#FFC107; padding:8px; font-weight:900; border-bottom:2px solid #000">${store.name}</div>
-                    <div style="padding:10px; font-size:13px">
-                        <span style="background:#000; color:#fff; padding:2px 6px; border-radius:4px; font-size:10px">${tag}</span><br>
-                        <p style="margin-top:8px"><i class="fa-solid fa-location-dot"></i> ${store.address}</p>
-                    </div>
-                </div>
-            `;
             L.marker([store.lat, store.lng], { icon: createIcon(store.type) })
-                .bindPopup(popup, { maxWidth: 500, minWidth: 220 })
+                .on('click', () => openStoreModal(store))
                 .addTo(markersGroup);
         });
 
@@ -232,7 +232,31 @@
         const modal = document.getElementById("joinModal");
         function openModal() { modal.style.display = "block"; }
         function closeModal() { modal.style.display = "none"; }
-        window.onclick = function(event) { if (event.target == modal) closeModal(); }
+
+        const storeModal = document.getElementById("storeModal");
+        function openStoreModal(store) {
+            const tag = store.type === 'soon' ? '即將開幕' : (store.type === 'mobile' ? '流動市集' : '營業中');
+            const img = document.getElementById("storeModalImg");
+            const noImg = document.getElementById("storeModalNoImg");
+            if (store.photo) {
+                img.src = store.photo;
+                img.style.display = "block";
+                noImg.style.display = "none";
+            } else {
+                img.style.display = "none";
+                noImg.style.display = "flex";
+            }
+            document.getElementById("storeModalName").textContent = store.name;
+            document.getElementById("storeModalTag").textContent = tag;
+            document.getElementById("storeModalAddr").textContent = store.address;
+            storeModal.style.display = "block";
+        }
+        function closeStoreModal() { storeModal.style.display = "none"; }
+
+        window.onclick = function(event) {
+            if (event.target == modal) closeModal();
+            if (event.target == storeModal) closeStoreModal();
+        }
     </script>
 </body>
 </html>
