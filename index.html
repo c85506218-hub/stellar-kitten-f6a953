@@ -169,22 +169,23 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         // 門市資料
+        const BASE_IMG = "https://760709f663.clvaw-cdnwnd.com/5183af9aa06e646df996520f487cd9b4/";
         const stores = [
-            { id: 1, name: "台中一中店", region: "中部", address: "台中市北區一中街179巷", lat: 24.1505, lng: 120.6853, type: "open" },
-            { id: 2, name: "台中太平店", region: "中部", address: "台中市太平區中山路二段391號", lat: 24.1436, lng: 120.7208, type: "open" },
-            { id: 3, name: "台中流動店", region: "中部", address: "大雅雅潭夜市", lat: 24.2183, lng: 120.6635, type: "mobile" },
-            { id: 4, name: "彰化溪湖店", region: "中部", address: "溪湖糖廠", lat: 23.9515, lng: 120.4828, type: "open" },
-            { id: 5, name: "桃園藝文店", region: "北部", address: "桃園蔦屋書店專櫃", lat: 25.0163, lng: 121.2988, type: "open" },
-            { id: 6, name: "桃園市集號", region: "北部", address: "桃園中正路(桃知道)", lat: 25.0169, lng: 121.2941, type: "mobile" },
-            { id: 7, name: "桃園龍潭店", region: "北部", address: "桃園市龍潭區神龍路235號", lat: 24.8643, lng: 121.2165, type: "open" },
-            { id: 8, name: "苗栗至公店", region: "北部", address: "苗栗市至公路482號", lat: 24.5574, lng: 120.8122, type: "open" },
-            { id: 9, name: "宜蘭宜大店", region: "北部", address: "宜蘭市女中路三段125號", lat: 24.7461, lng: 121.7468, type: "open" },
-            { id: 10, name: "新北板橋店", region: "北部", address: "新北市板橋區（即將開幕）", lat: 25.0135, lng: 121.4623, type: "soon" },
-            { id: 11, name: "台南永康店", region: "南部", address: "台南市永康區中正六街215號之4", lat: 23.0368, lng: 120.2452, type: "open" },
-            { id: 12, name: "高雄龍華店", region: "南部", address: "高雄市左營區嘉慶街3號", lat: 22.6582, lng: 120.3056, type: "open" },
-            { id: 13, name: "高雄市集號", region: "南部", address: "高雄仁武夜市", lat: 22.6933, lng: 120.3421, type: "mobile" },
-            { id: 14, name: "屏東市集號", region: "南部", address: "南部各大市集流動", lat: 22.6702, lng: 120.4851, type: "mobile" },
-            { id: 15, name: "桃園民有店", region: "北部", address: "桃園市桃園區民有三街537號", lat: 25.0136, lng: 121.3135, type: "soon" }
+            { id: 1,  name: "台中一中店", region: "中部", address: "台中市北區一中街179巷",            lat: 24.1505, lng: 120.6853, type: "open",   photo: BASE_IMG + "200000112-27bd627bd9/809287-9.jpg" },
+            { id: 2,  name: "台中太平店", region: "中部", address: "台中市太平區中山路二段391號",       lat: 24.1436, lng: 120.7208, type: "open",   photo: BASE_IMG + "200000405-8e3368e339/1731268341083.jpeg" },
+            { id: 3,  name: "台中流動店", region: "中部", address: "大雅雅潭夜市",                    lat: 24.2183, lng: 120.6635, type: "mobile", photo: BASE_IMG + "200000402-a3cd5a3cd7/1727455099323.jpeg" },
+            { id: 4,  name: "彰化溪湖店", region: "中部", address: "溪湖糖廠",                        lat: 23.9515, lng: 120.4828, type: "open",   photo: BASE_IMG + "200000418-d09bed09c0/1768722256512.jpeg" },
+            { id: 5,  name: "桃園藝文店", region: "北部", address: "桃園蔦屋書店專櫃",                lat: 25.0163, lng: 121.2988, type: "open",   photo: BASE_IMG + "200000420-071d2071d4/IMG_20260121_034527.jpeg" },
+            { id: 6,  name: "桃園市集號", region: "北部", address: "桃園中正路(桃知道)",               lat: 25.0169, lng: 121.2941, type: "mobile", photo: BASE_IMG + "200000428-bdea4bdea6/IMG_20260227_141732.jpeg" },
+            { id: 7,  name: "桃園龍潭店", region: "北部", address: "桃園市龍潭區神龍路235號",          lat: 24.8643, lng: 121.2165, type: "open",   photo: BASE_IMG + "200000290-4ea724ea73/801169.jpeg" },
+            { id: 8,  name: "苗栗至公店", region: "北部", address: "苗栗市至公路482號",               lat: 24.5574, lng: 120.8122, type: "open",   photo: BASE_IMG + "200000412-425c5425c6/1747926432127-4.jpeg" },
+            { id: 9,  name: "宜蘭宜大店", region: "北部", address: "宜蘭市女中路三段125號",            lat: 24.7461, lng: 121.7468, type: "open",   photo: BASE_IMG + "200000404-15c4d15c4e/1731268341070.jpeg" },
+            { id: 10, name: "新北板橋店", region: "北部", address: "新北市板橋區（即將開幕）",          lat: 25.0135, lng: 121.4623, type: "soon",   photo: null },
+            { id: 11, name: "台南永康店", region: "南部", address: "台南市永康區中正六街215號之4",      lat: 23.0368, lng: 120.2452, type: "open",   photo: BASE_IMG + "200000414-05cac05cae/%E6%94%A4%E4%BD%8D%E7%85%A7.jpeg" },
+            { id: 12, name: "高雄龍華店", region: "南部", address: "高雄市左營區嘉慶街3號",            lat: 22.6582, lng: 120.3056, type: "open",   photo: BASE_IMG + "200000416-13d5a13d5c/IMG_20251127_134439.jpeg" },
+            { id: 13, name: "高雄市集號", region: "南部", address: "高雄仁武夜市",                    lat: 22.6933, lng: 120.3421, type: "mobile", photo: BASE_IMG + "200000426-283b7283b8/IMG_20260320_204907.jpeg" },
+            { id: 14, name: "屏東市集號", region: "南部", address: "南部各大市集流動",                 lat: 22.6702, lng: 120.4851, type: "mobile", photo: BASE_IMG + "200000424-0e7260e728/IMG_20260207_173133.jpeg" },
+            { id: 15, name: "桃園民有店", region: "北部", address: "桃園市桃園區民有三街537號",         lat: 25.0136, lng: 121.3135, type: "soon",   photo: null }
         ];
 
         const map = L.map('map', { zoomControl: false }).setView([23.8, 120.9], 7);
@@ -209,10 +210,13 @@
 
         stores.forEach(store => {
             const tag = store.type === 'soon' ? '即將開幕' : (store.type === 'mobile' ? '流動市集' : '營業中');
-            const color = store.type === 'soon' ? 'gray' : 'yellow';
+            const photoHtml = store.photo
+                ? `<img src="${store.photo}" alt="${store.name}" style="width:100%; height:110px; object-fit:cover; display:block; border-bottom:2px solid #000">`
+                : `<div style="width:100%; height:60px; background:#f3f4f6; display:flex; align-items:center; justify-content:center; border-bottom:2px solid #000; color:#9ca3af; font-size:12px">即將開幕，敬請期待</div>`;
             const popup = `
-                <div style="width:200px">
-                    <div style="background:#FFC107; padding:8px; border-radius:8px 8px 0 0; font-weight:900; border-bottom:2px solid #000">${store.name}</div>
+                <div style="width:220px; overflow:hidden; border-radius:8px">
+                    ${photoHtml}
+                    <div style="background:#FFC107; padding:8px; font-weight:900; border-bottom:2px solid #000">${store.name}</div>
                     <div style="padding:10px; font-size:13px">
                         <span style="background:#000; color:#fff; padding:2px 6px; border-radius:4px; font-size:10px">${tag}</span><br>
                         <p style="margin-top:8px"><i class="fa-solid fa-location-dot"></i> ${store.address}</p>
