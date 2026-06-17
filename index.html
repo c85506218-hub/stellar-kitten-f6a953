@@ -110,9 +110,9 @@
 
     <!-- 店家詳情彈窗 -->
     <div id="storeModal" class="modal">
-        <div style="margin:auto; margin-top:5vh; background:#FFFDF7; border:4px solid #1F2937; border-radius:20px; max-width:480px; width:90%; box-shadow:8px 8px 0px rgba(0,0,0,1); overflow:hidden; position:relative">
+        <div style="margin:auto; margin-top:5vh; background:#FFFDF7; border:4px solid #1F2937; border-radius:20px; max-width:480px; width:90%; box-shadow:8px 8px 0px rgba(0,0,0,1); overflow-y:auto; max-height:85vh; position:relative">
             <button onclick="closeStoreModal()" style="position:absolute; top:10px; right:14px; z-index:10; font-size:24px; background:none; border:none; cursor:pointer; line-height:1"><i class="fa-solid fa-circle-xmark"></i></button>
-            <img id="storeModalImg" src="" alt="" style="width:100%; height:auto; display:block; border-bottom:4px solid #1F2937">
+            <img id="storeModalImg" src="" alt="" style="width:100%; max-height:55vh; object-fit:cover; display:block; border-bottom:4px solid #1F2937">
             <div id="storeModalNoImg" style="display:none; height:80px; background:#f3f4f6; display:flex; align-items:center; justify-content:center; border-bottom:4px solid #1F2937; color:#9ca3af; font-size:13px">即將開幕，敬請期待</div>
             <div style="background:#FFC107; padding:12px 16px; font-weight:900; font-size:18px; border-bottom:2px solid #1F2937" id="storeModalName"></div>
             <div style="padding:14px 16px; font-size:14px">
@@ -186,7 +186,7 @@
         const BASE_IMG = "https://760709f663.clvaw-cdnwnd.com/5183af9aa06e646df996520f487cd9b4/";
         const stores = [
             { id: 1,  name: "台中一中店", region: "中部", address: "台中市北區一中街179巷",            lat: 24.1505, lng: 120.6853, type: "open",   photo: BASE_IMG + "200000112-27bd627bd9/809287-9.jpg" },
-            { id: 2,  name: "台中太平店", region: "中部", address: "台中市太平區中山路二段391號",       lat: 24.1436, lng: 120.7208, type: "open",   photo: BASE_IMG + "200000405-8e3368e339/1731268341083.jpeg" },
+            { id: 2,  name: "台中太平店", region: "中部", address: "台中市太平區中山路二段391號",       lat: 24.1501, lng: 120.7288, type: "open",   photo: BASE_IMG + "200000405-8e3368e339/1731268341083.jpeg" },
             { id: 3,  name: "台中流動店", region: "中部", address: "大雅雅潭夜市",                    lat: 24.2183, lng: 120.6635, type: "mobile", photo: BASE_IMG + "200000402-a3cd5a3cd7/1727455099323.jpeg" },
             { id: 4,  name: "彰化溪湖店", region: "中部", address: "溪湖糖廠",                        lat: 23.9515, lng: 120.4828, type: "open",   photo: BASE_IMG + "200000418-d09bed09c0/1768722256512.jpeg" },
             { id: 5,  name: "桃園藝文店", region: "北部", address: "桃園蔦屋書店專櫃",                lat: 25.0163, lng: 121.2988, type: "open",   photo: BASE_IMG + "200000420-071d2071d4/IMG_20260121_034527.jpeg" },
