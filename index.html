@@ -243,9 +243,14 @@
                 img.src = store.photo;
                 img.style.display = "block";
                 noImg.style.display = "none";
+            } else if (store.type === "soon") {
+                img.style.display = "none";
+                noImg.style.display = "flex";
+                noImg.textContent = "即將開幕，敬請期待";
             } else {
                 img.style.display = "none";
                 noImg.style.display = "flex";
+                noImg.textContent = "暫無照片";
             }
             document.getElementById("storeModalName").textContent = store.name;
             document.getElementById("storeModalTag").textContent = tag;
