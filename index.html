@@ -185,24 +185,24 @@
         // 門市資料
         const BASE_IMG = "https://760709f663.clvaw-cdnwnd.com/5183af9aa06e646df996520f487cd9b4/";
         const stores = [
-            { id: 1,  name: "台中一中店", region: "中部", address: "台中市北區一中街179巷",            lat: 24.1505, lng: 120.6853, type: "open",   photo: BASE_IMG + "200000112-27bd627bd9/809287-9.jpg" },
+            { id: 1,  name: "台中一中店", region: "中部", address: "台中市北區一中街179巷",            lat: 24.1522, lng: 120.6856, type: "open",   photo: BASE_IMG + "200000112-27bd627bd9/809287-9.jpg" },
             { id: 2,  name: "台中太平店", region: "中部", address: "台中市太平區中山路二段391號",       lat: 24.1501, lng: 120.7288, type: "open",   photo: BASE_IMG + "200000405-8e3368e339/1731268341083.jpeg" },
             { id: 3,  name: "台中流動店", region: "中部", address: "大雅雅潭夜市",                    lat: 24.2183, lng: 120.6635, type: "mobile", photo: BASE_IMG + "200000402-a3cd5a3cd7/1727455099323.jpeg" },
-            { id: 4,  name: "彰化溪湖店", region: "中部", address: "溪湖糖廠",                        lat: 23.9515, lng: 120.4828, type: "open",   photo: BASE_IMG + "200000418-d09bed09c0/1768722256512.jpeg" },
+            { id: 4,  name: "彰化溪湖店", region: "中部", address: "溪湖糖廠",                        lat: 23.9516, lng: 120.4808, type: "open",   photo: BASE_IMG + "200000418-d09bed09c0/1768722256512.jpeg" },
             { id: 5,  name: "桃園藝文店", region: "北部", address: "桃園蔦屋書店專櫃",                lat: 25.0163, lng: 121.2988, type: "open",   photo: BASE_IMG + "200000420-071d2071d4/IMG_20260121_034527.jpeg" },
             { id: 6,  name: "桃園市集號", region: "北部", address: "桃園中正路(桃知道)",               lat: 25.0169, lng: 121.2941, type: "mobile", photo: BASE_IMG + "200000428-bdea4bdea6/IMG_20260227_141732.jpeg" },
-            { id: 7,  name: "桃園龍潭店", region: "北部", address: "桃園市龍潭區神龍路235號",          lat: 24.8643, lng: 121.2165, type: "open",   photo: BASE_IMG + "200000290-4ea724ea73/801169.jpeg" },
-            { id: 8,  name: "苗栗至公店", region: "北部", address: "苗栗市至公路482號",               lat: 24.5574, lng: 120.8122, type: "open",   photo: BASE_IMG + "200000412-425c5425c6/1747926432127-4.jpeg" },
-            { id: 9,  name: "宜蘭宜大店", region: "北部", address: "宜蘭市女中路三段125號",            lat: 24.7461, lng: 121.7468, type: "open",   photo: BASE_IMG + "200000404-15c4d15c4e/1731268341070.jpeg" },
+            { id: 7,  name: "桃園龍潭店", region: "北部", address: "桃園市龍潭區神龍路235號",          lat: 24.8596, lng: 121.2139, type: "open",   photo: BASE_IMG + "200000290-4ea724ea73/801169.jpeg" },
+            { id: 8,  name: "苗栗至公店", region: "北部", address: "苗栗市至公路482號",               lat: 24.5647, lng: 120.8115, type: "open",   photo: BASE_IMG + "200000412-425c5425c6/1747926432127-4.jpeg" },
+            { id: 9,  name: "宜蘭宜大店", region: "北部", address: "宜蘭市女中路三段125號",            lat: 24.7449, lng: 121.7448, type: "open",   photo: BASE_IMG + "200000404-15c4d15c4e/1731268341070.jpeg" },
             { id: 10, name: "新北板橋店", region: "北部", address: "新北市板橋區",                    lat: 25.0135, lng: 121.4623, type: "open",   photo: null },
             { id: 12, name: "高雄豐裕店", region: "南部", address: "高雄市三民區正忠路202號騎樓",      lat: 22.6456, lng: 120.3308, type: "open",   photo: "images/fengyushop.jpg" },
             { id: 13, name: "高雄市集號", region: "南部", address: "高雄市梓官區光明路130巷（蚵仔寮夜市）",  lat: 22.7329, lng: 120.2509, type: "mobile", photo: "images/kaohsiung-mobile.jpg" },
             { id: 14, name: "屏東市集號", region: "南部", address: "南部各大市集流動",                 lat: 22.6702, lng: 120.4851, type: "mobile", photo: "images/pingtung.jpg" },
             { id: 15, name: "桃園民有店", region: "北部", address: "桃園市桃園區民有三街537號",         lat: 25.0136, lng: 121.3135, type: "open",  photo: null },
-            { id: 18, name: "新北三重店", region: "北部", address: "新北市三重區仁愛街564號（浣熊慢慢喝）", lat: 25.0615, lng: 121.4881, type: "open",  photo: "images/sanchong.jpg" },
+            { id: 18, name: "新北三重店", region: "北部", address: "新北市三重區仁愛街564號（浣熊慢慢喝）", lat: 25.0814, lng: 121.4853, type: "open",  photo: "images/sanchong.jpg" },
             { id: 17, name: "新北泰山店", region: "北部", address: "新北市泰山區明志路一段366號（鮮萃茶飲）", lat: 25.0589, lng: 121.4308, type: "open",  photo: "images/taishan.jpg" },
-            { id: 19, name: "高雄楠梓店", region: "南部", address: "高雄市楠梓區楠梓路188號（楠梓國小旁）", lat: 22.7283, lng: 120.3262, type: "open",  photo: "images/nanzi.jpg" },
-            { id: 16, name: "台中太平長億店", region: "中部", address: "台中市太平區長億北街20號",        lat: 24.1336, lng: 120.7160, type: "open",  photo: "images/changyi.jpg" },
+            { id: 19, name: "高雄楠梓店", region: "南部", address: "高雄市楠梓區楠梓路188號（楠梓國小旁）", lat: 22.7319, lng: 120.3286, type: "open",  photo: "images/nanzi.jpg" },
+            { id: 16, name: "台中太平長億店", region: "中部", address: "台中市太平區長億北街20號",        lat: 24.1170, lng: 120.7172, type: "open",  photo: "images/changyi.jpg" },
             { id: 20, name: "台南善化店",     region: "南部", address: "台南市善化區民權路179號",          lat: 23.1313, lng: 120.2992, type: "soon",  photo: null }
         ];
 
